@@ -10,7 +10,7 @@
 <div style="text-align:center">
     <h1>Login application in Java using MVC and MySQL </h1> </div>
 <br>
-<form name="form" action="login.do" method="post">
+<form name="form" action="login" method="post">
     <table align="center">
         <tr>
             <td>Username</td>
