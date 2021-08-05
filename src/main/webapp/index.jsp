@@ -8,7 +8,7 @@
 </head>
 <body>
 <div style="text-align:center">
-    <h1>Login application in Java using MVC and MySQL </h1> </div>
+    <h1>OWASP LATAM21 - Secure Coding 101 - Secure Authentication </h1> </div>
 <br>
 <form name="form" action="login" method="post">
     <table align="center">

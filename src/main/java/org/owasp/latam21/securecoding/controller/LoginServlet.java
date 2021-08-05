@@ -25,14 +25,16 @@ public class LoginServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
+        RequestDispatcher dispatcher = null;
         PrintWriter out = response.getWriter();
         LoginDao loginDao = new LoginDao();
         String username = (String) request.getParameter("username");
         String password = (String) request.getParameter("password");
         User user = new User(username, password);
         try {
-            if(!loginDao.autheticateUSer(user))
-                this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            if(!loginDao.autheticateUSer(user)){
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
+            }
             Cookie userCookie = new Cookie("user", username);
             userCookie.setMaxAge(60*60*8*1);
             userCookie.setHttpOnly(Constants.HTTP_ONLY_COOKIE);
@@ -40,12 +42,11 @@ public class LoginServlet extends HttpServlet {
             userCookie.setDomain(Constants.APPLICATION_DOMAIN);
             response.addCookie(userCookie);
             //response.addHeader("Authorization", "TOken");
-            this.getServletContext().getRequestDispatcher("/home.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/home.jsp");
         }catch(Exception e){
         }
-        out.println("<html><body>");
-        out.println("<h1>" + username +"</h1>");
-        out.println("</body></html>");
+
+
 
     }
 

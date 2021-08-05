@@ -17,7 +17,7 @@ public class DataAccess {
 
     private DataAccess(){
         String url= "jdbc:mysql://mysqldb:3306/";
-        String dbName = "information_schema";
+        String dbName = "owasp21";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
         String password = "password";

@@ -11,6 +11,6 @@
     <title>Home of the user</title>
 </head>
 <body>
-
+<h1>Home of the user</h1>
 </body>
 </html>
